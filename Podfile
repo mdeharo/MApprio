@@ -7,6 +7,8 @@ target 'MApprio' do
 
   # Pods for MApprio
 
+  pod ‘Parse’
+
   target 'MApprioTests' do
     inherit! :search_paths
     # Pods for testing
