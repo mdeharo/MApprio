@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +24,48 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func loginAction(sender: AnyObject) {
+        var username = self.usernameField.text
+        var password = self.passwordField.text
+        
+        // Validate the text fields
+        // TODO: Deeper validation
+        if (username?.characters.count)! < 5 {
+            showMessageWith(title: "Invalid", message: "Username must be greater than 5 characters")
+            
+        } else if (password?.characters.count)! < 8 {
+            showMessageWith(title: "Invalid", message: "Password must be greater than 8 characters")
+        } else {
+            // Run a spinner to show a task in progress
+            activityIndicator.startAnimating()
+            
+            // Send a request to login
+            PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) in
+                
+                // Stop the spinner
+                self.activityIndicator.stopAnimating()
+                
+                if ((user) != nil) {
+                    self.showMessageWith(title: "Success", message: "Logged In")
+                    DispatchQueue.main.async {
+                        
+                        self.dismiss(animated: true, completion: {
+                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
+                            self.present(viewController, animated: true, completion: nil)
+                        })
+                    }
+                    
+                } else {
+                    self.showMessageWith(title: "Error", message: "\(error)")
+                }
+            })
+        }
     }
 
     /*

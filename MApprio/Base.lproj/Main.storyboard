@@ -54,6 +54,9 @@
                                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="passwordResetWithSender:" destination="4iu-Uf-eMY" eventType="touchUpInside" id="Pha-UO-BDr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -101,15 +104,18 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="w7h-K5-cqr"/>
-                                <exclude reference="WCV-nZ-YXy"/>
                                 <exclude reference="8YW-3R-EGO"/>
-                                <exclude reference="s42-CF-aGJ"/>
+                                <exclude reference="WCV-nZ-YXy"/>
                                 <exclude reference="nNm-zh-lC3"/>
+                                <exclude reference="s42-CF-aGJ"/>
+                                <exclude reference="w7h-K5-cqr"/>
                                 <exclude reference="O8l-ZV-y50"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="6m5-db-7LC" id="oBs-2L-419"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPO-wJ-lR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,6 +171,9 @@
                                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginActionWithSender:" destination="EP6-AY-Xag" eventType="touchUpInside" id="jU2-gI-cAi"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="4mQ-wj-sdB">
                                         <rect key="frame" x="0.0" y="284" width="270" height="20"/>
@@ -187,6 +196,9 @@
                                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ldf-9p-4aD" kind="presentation" id="8Y5-ZT-hto"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qa-sa-xJ6">
                                         <rect key="frame" x="75" y="259" width="121" height="33"/>
@@ -233,27 +245,37 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Gg6-JA-iKP"/>
                                         <exclude reference="fNB-h5-oAu"/>
                                         <exclude reference="vA5-vQ-Z4m"/>
-                                        <exclude reference="Gg6-JA-iKP"/>
+                                        <exclude reference="7EQ-qf-onz"/>
                                         <exclude reference="Eeb-AH-AGT"/>
                                         <exclude reference="Geb-QV-PfL"/>
-                                        <exclude reference="7EQ-qf-onz"/>
                                         <exclude reference="Le8-Cf-ZIb"/>
                                         <exclude reference="boG-aP-xsO"/>
                                         <exclude reference="gq7-3a-YIa"/>
-                                        <exclude reference="vMf-bL-pkY"/>
                                         <exclude reference="dhf-ho-3aA"/>
+                                        <exclude reference="vMf-bL-pkY"/>
                                     </mask>
                                 </variation>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="d7U-ev-065">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40784313729999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="QUc-WO-uBN" secondAttribute="centerX" id="Gop-Vs-K94"/>
+                            <constraint firstItem="d7U-ev-065" firstAttribute="centerX" secondItem="HQN-t0-asM" secondAttribute="centerX" id="eU6-bz-Iwi"/>
                             <constraint firstAttribute="centerY" secondItem="QUc-WO-uBN" secondAttribute="centerY" id="lv4-pM-Ba5"/>
+                            <constraint firstItem="d7U-ev-065" firstAttribute="centerY" secondItem="HQN-t0-asM" secondAttribute="centerY" id="u3e-kg-vWh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="d7U-ev-065" id="kEk-QK-Vlb"/>
+                        <outlet property="passwordField" destination="ZGW-r6-pW9" id="8qz-a5-bB7"/>
+                        <outlet property="usernameField" destination="Q8R-vy-OTJ" id="bqg-Sg-JgE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khi-8b-FIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,7 +309,7 @@
                                             <constraint firstAttribute="height" constant="30" id="mvu-ew-mlc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEj-rM-gzY">
                                         <rect key="frame" x="13" y="184" width="245" height="30"/>
@@ -295,7 +317,7 @@
                                             <constraint firstAttribute="width" constant="245" id="wXa-Pd-Nuk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5eb-OZ-wey">
                                         <rect key="frame" x="13" y="134" width="245" height="30"/>
@@ -316,6 +338,9 @@
                                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpAction:" destination="ldf-9p-4aD" eventType="touchUpInside" id="TIw-nR-mIH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -348,7 +373,13 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lnf-Dv-LI7" kind="unwind" unwindAction="unwindToLogInScreenWithSegue:" id="ezn-1m-PmR"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2DR-dM-Ifp">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.27450980390000002" green="0.74509803919999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -357,21 +388,30 @@
                             <constraint firstAttribute="trailing" secondItem="DjA-wf-NNO" secondAttribute="trailing" constant="16" id="NJD-Zu-HbC"/>
                             <constraint firstItem="DjA-wf-NNO" firstAttribute="top" secondItem="FGJ-gn-bAo" secondAttribute="bottom" constant="8" id="PV1-hK-ggL"/>
                             <constraint firstAttribute="trailing" secondItem="DjA-wf-NNO" secondAttribute="trailing" constant="16" id="Zez-ba-Cey"/>
+                            <constraint firstItem="2DR-dM-Ifp" firstAttribute="centerY" secondItem="yqi-Ti-Zrm" secondAttribute="centerY" id="dpy-md-e1g"/>
                             <constraint firstItem="5dK-Ib-dLd" firstAttribute="top" secondItem="DjA-wf-NNO" secondAttribute="bottom" constant="542" id="eBw-7u-0r9"/>
+                            <constraint firstItem="2DR-dM-Ifp" firstAttribute="centerX" secondItem="yqi-Ti-Zrm" secondAttribute="centerX" id="jQx-Ad-PFC"/>
                             <constraint firstItem="DjA-wf-NNO" firstAttribute="leading" secondItem="yqi-Ti-Zrm" secondAttribute="leading" constant="554" id="voG-bc-VcU"/>
                             <constraint firstAttribute="centerY" secondItem="HkR-D2-eUW" secondAttribute="centerY" id="zSq-AD-dTC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="voG-bc-VcU"/>
                                 <exclude reference="PV1-hK-ggL"/>
                                 <exclude reference="Zez-ba-Cey"/>
+                                <exclude reference="voG-bc-VcU"/>
                                 <exclude reference="eBw-7u-0r9"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="2DR-dM-Ifp" id="lN2-uA-s3c"/>
+                        <outlet property="emailField" destination="a73-xt-iRN" id="41j-eO-833"/>
+                        <outlet property="passwordField" destination="QEj-rM-gzY" id="v1S-zj-HDe"/>
+                        <outlet property="usernameField" destination="5eb-OZ-wey" id="OEZ-Ub-K02"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqk-AO-DCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lnf-Dv-LI7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2722" y="-755"/>
         </scene>
@@ -418,6 +458,9 @@
                                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logOutActionWithSender:" destination="LrF-TF-BG8" eventType="touchUpInside" id="R3h-T4-MGj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -439,6 +482,9 @@
                             <constraint firstAttribute="centerX" secondItem="zSa-wL-Ntg" secondAttribute="centerX" id="WbR-PG-oyL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userNameLabel" destination="UZB-A0-8c1" id="53c-GU-aMo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34T-Dx-pnO" sceneMemberID="firstResponder"/>
             </objects>

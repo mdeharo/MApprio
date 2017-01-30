@@ -7,17 +7,44 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var userNameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Show the current visitor's username
+        if let pUserName = PFUser.current()?["username"] as? String {
+            self.userNameLabel.text = "@" + pUserName
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (PFUser.current() == nil) {
+            DispatchQueue.main.async {
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                self.present(viewController, animated: true, completion: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func logOutAction(sender: AnyObject){
+        
+        // Send a request to log out a user
+        PFUser.logOut()
+        
+        DispatchQueue.main.async {
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") 
+            self.present(viewController, animated: true, completion: nil)
+        }
+        
     }
     
 

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Allow connect to Parse Server
         let configuration = ParseClientConfiguration {
             $0.applicationId = "myAppId"
-            $0.server = "http://159.203.124.174:1337/parse"
+            $0.server = "http://abengoa.bersusco.es/parse"
         }
         Parse.initialize(with: configuration)
         return true

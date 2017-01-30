@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import MApprio
 
 class MApprioTests: XCTestCase {
     
