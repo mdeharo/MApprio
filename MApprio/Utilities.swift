@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+extension UIViewController: UITextFieldDelegate {
     
     func showMessageWith(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -17,5 +17,21 @@ extension UIViewController {
         alertController.addAction(action)
         self.present(alertController, animated: true)
     }
+    
+    func hideKeyboardWhenTappingAround() {
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     
 }
